@@ -27,7 +27,7 @@ if mouse_wheel_up() and not keyboard_check(vk_control)
 	else
 	{
 		#region	Change tile part
-		if (pos + 1) <= 1 then pos++;
+		if (pos + 1) < 3 then pos++;
 		else pos = 0;
 		
 		
@@ -40,6 +40,7 @@ if mouse_wheel_up() and not keyboard_check(vk_control)
 		
 		if (current_part + 1) <= 1 then current_part++;
 		else current_part = e_tile_data.decor_index;
+
 		break;
 		
 		case 1:	//landings index
@@ -48,6 +49,16 @@ if mouse_wheel_up() and not keyboard_check(vk_control)
 		
 		if (current_part + 1) <= 1 then current_part++;
 		else current_part = e_tile_data.land_index;
+
+		break;
+		
+		case 2:	//sprite index
+		current_part = e_tile_data.floor_index;
+		current_sprite = global.cell_sprites[current_part];
+		
+		if (current_part + 1) <= 4 then current_part++;
+		else current_part = e_tile_data.floor_index;
+		show_debug_message(string(current_part))
 		break;
 	}
 
