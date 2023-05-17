@@ -41,8 +41,10 @@
   "resources": [
     {"id":{"name":"Unit_boxSelect","path":"objects/Unit_boxSelect/Unit_boxSelect.yy",},},
     {"id":{"name":"Tree","path":"sprites/Tree/Tree.yy",},},
+    {"id":{"name":"spr_INF_LIGHT","path":"sprites/spr_INF_LIGHT/spr_INF_LIGHT.yy",},},
     {"id":{"name":"ScreenToTile","path":"scripts/ScreenToTile/ScreenToTile.yy",},},
     {"id":{"name":"scrResolution","path":"scripts/scrResolution/scrResolution.yy",},},
+    {"id":{"name":"oMain","path":"objects/oMain/oMain.yy",},},
     {"id":{"name":"TileSet","path":"sprites/TileSet/TileSet.yy",},},
     {"id":{"name":"oRoomManager","path":"objects/oRoomManager/oRoomManager.yy",},},
     {"id":{"name":"Unit_Manager","path":"objects/Unit_Manager/Unit_Manager.yy",},},

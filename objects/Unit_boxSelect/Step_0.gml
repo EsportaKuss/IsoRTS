@@ -1,5 +1,5 @@
 /// @desc
-if oEditor.mode == EditorMode.controlling
+if oEditor.editing_state == e_EditorMode.controlling
 {
 	if selecting == true
 	{

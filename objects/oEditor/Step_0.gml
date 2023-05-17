@@ -2,18 +2,18 @@
 
 #region DETERMINE GRID_X/Y
 
-//grid_x = floor(mouse_x / TILE_W);
-//grid_y = floor(mouse_y / TILE_H);
 grid_x = floor((mouse_x / iso_width)  + (mouse_y / iso_height));
 grid_y = floor((mouse_y / iso_height) - (mouse_x / iso_width));
+
+actual_grid_x = grid_x;
+actual_grid_y = grid_y;
 
 //cap grid_x/y
 grid_x = clamp(grid_x, 0, hcells -1);
 grid_y = clamp(grid_y, 0, vcells -1);
 
 #endregion
-
-
+if editing_state == e_EditorMode.building{	
 #region CHANGE INDEX
 if mouse_wheel_up() and not keyboard_check(vk_control)
 {
@@ -26,7 +26,7 @@ if mouse_wheel_up() and not keyboard_check(vk_control)
 	}
 	else
 	{
-		#region	Change tile part
+		
 		if (pos + 1) < 3 then pos++;
 		else pos = 0;
 		
@@ -45,14 +45,14 @@ if mouse_wheel_down() and not keyboard_check(vk_control)
 	}
 	else
 	{
-		#region change tile part
+		
 		
 		if (pos - 1) >= 0 then pos--;
 		else pos = 1;
 	}
 }
 
-#region SWICH PALETTES
+	#region SWICH PALETTES
 		switch pos
 	{
 		case 0:	//decor index
@@ -72,11 +72,11 @@ if mouse_wheel_down() and not keyboard_check(vk_control)
 	}
 		#endregion	
 #endregion
-
-
+}
 
 
 #region PAINT THE MAP
+/*
 if mouse_check_button( mb_left)
 {
 	if mouse_check_button(mb_left)
@@ -87,21 +87,45 @@ if mouse_check_button( mb_left)
 		list[| e_tile_data.z]	= current_height;				//Z
 	}
 }
+*/
+
+if mouse_check_button(mb_left)
+{
+	var list = ds_terrain_data[# grid_x, grid_y];
+	
+	//place items
+	if editing_state == e_EditorMode.building
+	{
+		list[| current_part]	= new_index;
+		list[| e_tile_data.z]   = current_height;
+	}
+	//place units
+	if editing_state == e_EditorMode.mission
+	{
+		if actual_grid_x == grid_x and actual_grid_y == grid_y
+		{
+			list[| e_tile_data.spawn_tile] = mouse_index;	
+		}
+	}
+	
+}
+
 #endregion
 
 #region CHANGE THE HEIGHT
-if keyboard_check(vk_control) and mouse_wheel_down()
+if keyboard_check(vk_control) and mouse_wheel_up()
 {
 	if (current_height + 1) < max_height current_height++;
 	else current_height = 0;
 }
 
-if keyboard_check(vk_control) and mouse_wheel_up()
+if keyboard_check(vk_control) and mouse_wheel_down()
 {
 	if (current_height > 0) current_height--;
 	else current_height = (max_height -1);
 }
 #endregion
+
 
 #region TONGGLE DISPLAY_ALL_HEIGHTS
 

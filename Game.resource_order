@@ -22,8 +22,10 @@
   "ResourceOrderSettings": [
     {"name":"Unit_boxSelect","order":2,"path":"objects/Unit_boxSelect/Unit_boxSelect.yy",},
     {"name":"Tree","order":5,"path":"sprites/Tree/Tree.yy",},
+    {"name":"spr_INF_LIGHT","order":7,"path":"sprites/spr_INF_LIGHT/spr_INF_LIGHT.yy",},
     {"name":"ScreenToTile","order":2,"path":"scripts/ScreenToTile/ScreenToTile.yy",},
     {"name":"scrResolution","order":7,"path":"scripts/scrResolution/scrResolution.yy",},
+    {"name":"oMain","order":5,"path":"objects/oMain/oMain.yy",},
     {"name":"TileSet","order":1,"path":"sprites/TileSet/TileSet.yy",},
     {"name":"oRoomManager","order":4,"path":"objects/oRoomManager/oRoomManager.yy",},
     {"name":"Unit_Manager","order":1,"path":"objects/Unit_Manager/Unit_Manager.yy",},

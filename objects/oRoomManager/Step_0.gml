@@ -34,8 +34,8 @@ switch mode
 
 if not boundless
 {
-	cx = clamp(cx, 0, room_width - view_w);
-	cy = clamp(cy, 0, room_height - view_h);
+	//cx = clamp(cx, 0, room_width - view_w);
+	//cy = clamp(cy, 0, room_height - view_h);
 }
 
 

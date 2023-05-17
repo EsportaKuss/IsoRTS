@@ -9,13 +9,20 @@ enum e_tile_data
 	decor_index ,
 	weight		,
 	land_index	,
+	spawn_tile	,
+	unit		,
+	unit_facing ,
+	building	,
+	objective	,
+	is_ai_cont	,
 	last
 }
-enum EditorMode
+enum e_EditorMode
 {
 	building,			//to build
 	controlling,		//to control units
-	manager				//to save/load/delete the map
+	manager,			//to save/load/delete the map
+	mission
 }
 
 #endregion
@@ -41,6 +48,7 @@ for (var yy = 0; yy < vcells; yy ++){
 	{
 		if (i == e_tile_data.floor_index) list[| i] = thisTile[TILE.SPRITE] ; else list[| i] = 0;
 		list [| e_tile_data.land_index] = 0;
+		if ( i >= e_tile_data.spawn_tile) list[| i] = -1;
 	}
 	ds_terrain_data[# xx, yy] = list;
 	//show_debug_message(list[| e_tile_data.floor_index]);
@@ -62,6 +70,8 @@ global.cell_sprites[e_tile_data.land_index]		= Tree;
 	
 	grid_x		= 0;	//mouse is x
 	grid_y		= 0;	//mouse is y
+	actual_grid_x = 0;
+	actual_grid_y = 0;
 	new_index	= 1;	//new terrain
 	iso_width	= 16;	// 16
 	iso_height	= 9;	// 9
@@ -81,11 +91,17 @@ global.cell_sprites[e_tile_data.land_index]		= Tree;
 	show_debug_overlay(true);
 	
 	//Editor states
-	mode = EditorMode.building;
 	pos = 0;
 	
-	
-	
+#endregion
+
+#region MISSION EDITOR
+
+
+mouse_sprite = -1;
+mouse_index = 0;
+
+editing_state = e_EditorMode.mission
 #endregion
 
 scr_load_game_data();
