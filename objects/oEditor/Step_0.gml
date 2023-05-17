@@ -30,50 +30,7 @@ if mouse_wheel_up() and not keyboard_check(vk_control)
 		if (pos + 1) < 3 then pos++;
 		else pos = 0;
 		
-		
-		#region SWICH PALETTES
-	switch pos
-	{
-		case 0:	//decor index
-		current_part = e_tile_data.decor_index;
-		current_sprite = global.cell_sprites[current_part];
-		
-		if (current_part + 1) <= 1 then current_part++;
-		else current_part = e_tile_data.decor_index;
-
-		break;
-		
-		case 1:	//landings index
-		current_part = e_tile_data.land_index;
-		current_sprite = global.cell_sprites[current_part];
-		
-		if (current_part + 1) <= 1 then current_part++;
-		else current_part = e_tile_data.land_index;
-
-		break;
-		
-		case 2:	//sprite index
-		current_part = e_tile_data.floor_index;
-		current_sprite = global.cell_sprites[current_part];
-		
-		if (current_part + 1) <= 4 then current_part++;
-		else current_part = e_tile_data.floor_index;
-		show_debug_message(string(current_part))
-		break;
-	}
-
-#endregion
-		/*
-		
-		
-		if (current_part + 1) <= e_tile_data.decor_index current_part++;
-		else current_part = 0;
-		
-		current_sprite = global.cell_sprites[current_part];
-		new_index = 1;
-		#endregion
-		*/
-		
+		//swich
 	}
 	
 }
@@ -92,43 +49,28 @@ if mouse_wheel_down() and not keyboard_check(vk_control)
 		
 		if (pos - 1) >= 0 then pos--;
 		else pos = 1;
-		
-		
-		#region SWICH PALETTES
-	switch pos
+	}
+}
+
+#region SWICH PALETTES
+		switch pos
 	{
 		case 0:	//decor index
 		current_part = e_tile_data.decor_index;
-		current_sprite = global.cell_sprites[current_part];
-		
-		if (current_part - 1) >= 0 then current_part--;
-		else current_part = e_tile_data.decor_index;
+		current_sprite = Floor_items;
 		break;
 		
 		case 1:	//landings index
 		current_part = e_tile_data.land_index;
-		current_sprite = global.cell_sprites[current_part];
+		current_sprite = Tree;
+		break;
 		
-		if (current_part - 1) >= 0 then current_part--;
-		else current_part = e_tile_data.land_index;
+		case 2:	//sprite index
+		current_part = e_tile_data.floor_index;
+		current_sprite = sTiles;
 		break;
 	}
-
-#endregion
-		
-		/*
-		if (current_part - 1) >= 0 current_part--;
-		else current_part = e_tile_data.decor_index;
-
-		current_sprite = global.cell_sprites[current_part];
-		new_index = 1;
-		#endregion
-		*/
-		
-		
-	}
-}
-
+		#endregion	
 #endregion
 
 
