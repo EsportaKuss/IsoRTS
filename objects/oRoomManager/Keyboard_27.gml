@@ -1,0 +1,2 @@
+/// @descr
+game_end();
