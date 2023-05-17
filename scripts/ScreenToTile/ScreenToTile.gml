@@ -1,3 +1,4 @@
+/*
 function ScreenToTileX()
 {
 	var _screenX = argument0 - (ROOM_W * 0.5);
